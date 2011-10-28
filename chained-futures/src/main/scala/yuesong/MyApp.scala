@@ -6,10 +6,10 @@ import org.slf4j.LoggerFactory
 
 /**
  * When chaining Futures that use different dispatchers, it is important to understand that all callback methods such as
- * onResult, onException, even flatMap happen on a thread in the outer future's dispatcher, therefore they are subject
- * to queuing like other tasks on the dispatch. For example, if you simultaneously created more outer futures on the 
- * dispatcher than the number of thread it has, the inner futures's code won't be executed until all outer futures
- * complete! 
+ * onResult, onException, as well as flatMap happen on a thread in the outer future's dispatcher, therefore they are 
+ * subject to queuing like other tasks on the same dispatcher. For example, if you simultaneously created more outer 
+ * futures on the dispatcher than the number of thread it has, the inner futures's code won't be executed until all 
+ * outer futures are complete! 
  */
 object MyApp extends App {
 
